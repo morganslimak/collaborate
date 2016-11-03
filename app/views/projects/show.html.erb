@@ -1,0 +1,12 @@
+<h1><%= @project.name %></h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= task.description %></li>
+    <% end %>
+</ul>
+<%= form_for [@project, @task] do |f| %>
+  <%= f.label :task %>
+  <%= f.text_field :description, size: "50x1" %>
+
+  <%= f.submit "Add Task" %>
+<% end %>
