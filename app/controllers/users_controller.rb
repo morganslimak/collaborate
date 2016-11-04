@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -15,6 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    if @user.id != params[:id].to_i
+      redirect_to @user
+    end
   end
 
   private
@@ -22,5 +27,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :password, :password_confirmation)
   end
-
 end

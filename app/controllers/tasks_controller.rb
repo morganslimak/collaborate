@@ -1,17 +1,17 @@
 class TasksController < ApplicationController
-    def create
-      @project = Project.find(params[:project_id])
-      @task = @project.tasks.new(task_params)
+  def create
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.new(task_params)
 
-      if @task.save
-        redirect_to :back
-      else
-      end
+    if @task.save
+      redirect_to :back
+    else
     end
+  end
 
-    private
+  private
 
-    def task_params
-      params.require(:task).permit(:description, :project_id)
-    end
+  def task_params
+    params.require(:task).permit(:description, :project_id)
+  end
 end
