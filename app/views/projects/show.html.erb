@@ -10,3 +10,17 @@
 
   <%= f.submit "Add Task" %>
 <% end %>
+<br>
+<%= form_tag :members do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
+
+  <%= hidden_field_tag :project_id, @project.id %>
+
+  <%= submit_tag "Add Member" %>
+<% end %>
+<ul>
+  <% @members.each do |member| %>
+    <li><%= member.username %></li>
+    <% end %>
+</ul>
