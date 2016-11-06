@@ -1,9 +1,19 @@
-<%= form_tag :login do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-
-  <%= submit_tag "Log In" %>
-<% end %>
+<div class="container-fluid main">
+  <h1 id="header">Collaborate</h1>
+  <img src="assets/collaborate-logo.jpg" class="img-responsive center-block" id="header-logo">
+</div>
+<!-- <div class="container main"> -->
+  <%= form_tag :login, class: "form-inline login text-center" do %>
+    <div class="form-group">
+      <%= label_tag :username %>
+      <%= text_field_tag :username, "", class: "form-field form-control" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, "", class: "form-field form-control" %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag "Login", class: "form-field btn btn-default form-control" %>
+    </div>
+  <% end %>
+<!-- </div> -->

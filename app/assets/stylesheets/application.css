@@ -14,3 +14,54 @@
  *= require_self
  *= require bootstrap
  */
+
+ html {
+   background-color: #21B3A9;
+ }
+
+ .main {
+   background-color: #21B3A9;
+ }
+
+ .login {
+  background-color: #18333A;
+  color: #ffffff;
+  padding-top: 25px;
+  padding-bottom: 25px;
+ }
+
+ .form-field {
+   color: #000000;
+   font-weight: bold;
+ }
+
+ .form-group input {
+   border-radius: 0;
+ }
+
+ @media only screen and (max-width : 768px) {
+   .form-group input {
+     text-align: center;
+   }
+}
+
+.btn.btn-default {
+  color: #21B3A9;
+  border-radius: 0;
+}
+
+.btn.btn-default:hover {
+  color: #21B3A9;
+}
+
+ #header-logo {
+   display:block;
+ }
+
+ #header {
+   text-align: center;
+   color: white;
+   font-family: "Comic Sans MS";
+   font-weight: bolder;
+   font-size: 400%;
+ }
