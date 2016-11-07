@@ -1,19 +1,16 @@
-<div class="container-fluid main">
+<div class="container-fluid background">
   <h1 id="header">Collaborate</h1>
   <img src="assets/collaborate-logo.jpg" class="img-responsive center-block" id="header-logo">
 </div>
-<!-- <div class="container main"> -->
-  <%= form_tag :login, class: "form-inline login text-center" do %>
-    <div class="form-group">
-      <%= label_tag :username %>
-      <%= text_field_tag :username, "", class: "form-field form-control" %>
-    </div>
-    <div class="form-group">
-      <%= label_tag :password %>
-      <%= password_field_tag :password, "", class: "form-field form-control" %>
-    </div>
-    <div class="form-group">
-      <%= submit_tag "Login", class: "form-field btn btn-default form-control" %>
-    </div>
-  <% end %>
-<!-- </div> -->
+<%= form_tag :login, class: "form-inline login text-center" do %>
+  <div class="form-group">
+    <%= label_tag :username %>
+    <%= text_field_tag :username, "", class: "form-field form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :password %>
+    <%= password_field_tag :password, "", class: "form-field form-control" %>
+  </div>
+  <%= submit_tag "Login", class: "form-field btn btn-default form-control" %>
+<% end %>
+<p class="text-center">Not yet registered? <%= link_to "Create a new account.", new_user_path %></p>

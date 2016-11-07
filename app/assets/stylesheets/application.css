@@ -19,10 +19,6 @@
    background-color: #21B3A9;
  }
 
- .main {
-   background-color: #21B3A9;
- }
-
  .login {
   background-color: #18333A;
   color: #ffffff;
@@ -35,12 +31,12 @@
    font-weight: bold;
  }
 
- .form-group input {
+ .form-group .form-field {
    border-radius: 0;
  }
 
  @media only screen and (max-width : 768px) {
-   .form-group input {
+   .form-group .form-field {
      text-align: center;
    }
 }
@@ -65,3 +61,15 @@
    font-weight: bolder;
    font-size: 400%;
  }
+
+ .background {
+   background-color: #21B3A9;
+ }
+
+ .white-text {
+   color: #ffffff;
+ }
+
+#registration {
+  font-family: "Comic Sans MS";
+}
