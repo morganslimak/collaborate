@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      flash[:alert] = "Welcome, #{@user.first_name}!  To get started, please create a new project below, or wait for another user to add you to their project."
       redirect_to @user
     else
       flash.now[:alert] = "Something went wrong!  Please fill in all fields and make sure passswords match."
