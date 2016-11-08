@@ -1,2 +1,15 @@
-Welcome, <%= @user.first_name %>
-<%= link_to "Log Out", login_path, method: :delete %>
+<div class="container-fluid background">
+  <div class="well well-lg">
+    <%= button_to "Log Out", login_path, method: :delete, id: "logout-btn", class: "btn btn-default" %>
+    <h1 id="nav-header">Collaborate</h1>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><%= link_to "My Projects", user_path(@user) %></li>
+      <li role="presentation"><%= link_to "Edit Profile", edit_user_path(@user) %></li>
+    </ul>
+    <ul class="list-style">
+      <% @projects.each do |project| %>
+        <li class="project-list"><%= link_to project.name, project_path(project)%></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

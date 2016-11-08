@@ -73,3 +73,36 @@
 #registration {
   font-family: "Comic Sans MS";
 }
+
+.well {
+  margin-top: 15px;
+}
+
+#nav-header {
+  font-family: "Comic Sans MS";
+  font-weight: bolder;
+  margin-top: 0;
+  color: white;
+  text-shadow:
+  -1px -1px 0 #7C7C7C,
+  1px -1px 0 #7C7C7C,
+  -1px 1px 0 #7C7C7C,
+  1px 1px 0 #7C7C7C;
+}
+
+.project-list:before {
+  content: "»";
+  padding-right: 8px;
+  color: #21B3A9;
+}
+
+.list-style {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  font-size: 150%;
+}
+
+#logout-btn {
+  float: right;
+}
