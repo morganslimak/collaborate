@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
     @member = Member.new
     @tasks = @project.tasks
     @members = @project.users
+    @user = current_user
   end
 
   private

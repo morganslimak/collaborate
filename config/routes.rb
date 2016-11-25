@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   delete '/login', to: 'sessions#destroy'
   resources :users, except: [:destroy] do
     resources :projects, only: [:create, :show, :destroy], shallow: true do
-      resources :tasks, only: [:create]
+      resources :tasks, only: [:create, :update, :destroy]
     end
   end
   resources :members, only: [:create]

@@ -14,41 +14,48 @@
             <td><%= task.description %></td>
             <td><%= task.status%></td>
             <td>
-              <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default">
+              <%= form_for [task], html: {class: "actions"} do |f| %>
+                <%= f.hidden_field :status, value: "In Progress - #{@user.username}" %>
+                <%= button_tag(type: 'submit', class: "btn btn-default") do %>
                   <span class="glyphicon glyphicon-plus"></span>
-                </button>
-                <button type="button" class="btn btn-default">
+                <% end %>
+              <% end %>
+              <%= form_for [task], html: {class: "actions"} do |f| %>
+                <%= f.hidden_field :status, value: "Completed" %>
+                <%= button_tag(type: 'submit', class: "btn btn-default") do %>
                   <span class="glyphicon glyphicon-ok"></span>
-                </button>
-                <button type="button" class="btn btn-default">
+                <% end %>
+              <% end %>
+              <%= form_for [task], html: {method: :delete, class: "actions"} do |f| %>
+                <%= f.hidden_field :status%>
+                <%= button_tag(type: 'submit', class: "btn btn-default") do %>
                   <span class="glyphicon glyphicon-trash"></span>
-                </button>
-              </div>
+                <% end %>
+              <% end %>
             </td>
           </tr>
         <% end %>
     </table>
     <br>
-      <%= form_for [@project, @task] do |f| %>
-        <%= f.label :task %>
-        <%= f.text_field :description, size: "50x1" %>
+    <%= form_for [@project, @task] do |f| %>
+      <%= f.label :task %>
+      <%= f.text_field :description, size: "50x1" %>
 
-        <%= f.submit "Add Task" %>
-      <% end %>
-      <br>
-      <%= form_tag :members do %>
-        <%= label_tag :username %>
-        <%= text_field_tag :username %>
+      <%= f.submit "Add Task" %>
+    <% end %>
+    <br>
+    <%= form_tag :members do %>
+      <%= label_tag :username %>
+      <%= text_field_tag :username %>
 
-        <%= hidden_field_tag :project_id, @project.id %>
+      <%= hidden_field_tag :project_id, @project.id %>
 
-        <%= submit_tag "Add Member" %>
-      <% end %>
-      <ul>
-        <% @members.each do |member| %>
-          <li><%= member.username %></li>
-          <% end %>
-      </ul>
+      <%= submit_tag "Add Member" %>
+    <% end %>
+    <ul>
+      <% @members.each do |member| %>
+        <li><%= member.username %></li>
+        <% end %>
+    </ul>
   </div>
 </div>
