@@ -1,26 +1,54 @@
-<h1><%= @project.name %></h1>
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= task.description %></li>
-    <% end %>
-</ul>
-<%= form_for [@project, @task] do |f| %>
-  <%= f.label :task %>
-  <%= f.text_field :description, size: "50x1" %>
+<div class="container-fluid background">
+  <div class="well well-lg">
+    <%= button_to "Log Out", login_path, method: :delete, id: "logout-btn", class: "btn-square btn btn-default" %>
+    <h1 id="nav-header">Collaborate</h1>
+    <h1><%= @project.name %></h1>
+    <table id="projects">
+      <tr>
+        <th>Task</th>
+        <th class="statuses">Status</th>
+        <th>Action</th>
+      </tr>
+        <% @tasks.each do |task| %>
+          <tr>
+            <td><%= task.description %></td>
+            <td><%= task.status%></td>
+            <td>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default">
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+                <button type="button" class="btn btn-default">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+                <button type="button" class="btn btn-default">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+    </table>
+    <br>
+      <%= form_for [@project, @task] do |f| %>
+        <%= f.label :task %>
+        <%= f.text_field :description, size: "50x1" %>
 
-  <%= f.submit "Add Task" %>
-<% end %>
-<br>
-<%= form_tag :members do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
+        <%= f.submit "Add Task" %>
+      <% end %>
+      <br>
+      <%= form_tag :members do %>
+        <%= label_tag :username %>
+        <%= text_field_tag :username %>
 
-  <%= hidden_field_tag :project_id, @project.id %>
+        <%= hidden_field_tag :project_id, @project.id %>
 
-  <%= submit_tag "Add Member" %>
-<% end %>
-<ul>
-  <% @members.each do |member| %>
-    <li><%= member.username %></li>
-    <% end %>
-</ul>
+        <%= submit_tag "Add Member" %>
+      <% end %>
+      <ul>
+        <% @members.each do |member| %>
+          <li><%= member.username %></li>
+          <% end %>
+      </ul>
+  </div>
+</div>

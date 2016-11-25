@@ -1,6 +1,6 @@
 <div class="container-fluid background">
   <div class="well well-lg">
-    <%= button_to "Log Out", login_path, method: :delete, id: "logout-btn", class: "btn btn-default" %>
+    <%= button_to "Log Out", login_path, method: :delete, id: "logout-btn", class: "btn-square btn btn-default" %>
     <h1 id="nav-header">Collaborate</h1>
     <ul class="nav nav-tabs">
       <li role="presentation" class="active"><%= link_to "My Projects", user_path(@user) %></li>
@@ -11,5 +11,11 @@
         <li class="project-list"><%= link_to project.name, project_path(project)%></li>
       <% end %>
     </ul>
+    <%= form_for [@user, @project] do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.submit "New Project" %>
+    <% end %>
   </div>
 </div>

@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @project = Project.new
     @projects = @user.projects
     if @user.id != params[:id].to_i
       redirect_to @user

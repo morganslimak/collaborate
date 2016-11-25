@@ -11,8 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require bootstrap
+ *= require_self
  */
 
  html {
@@ -41,12 +41,12 @@
    }
 }
 
-.btn.btn-default {
+.btn-square.btn.btn-default {
   color: #21B3A9;
   border-radius: 0;
 }
 
-.btn.btn-default:hover {
+.btn-square.btn.btn-default:hover {
   color: #21B3A9;
 }
 
@@ -105,4 +105,14 @@
 
 #logout-btn {
   float: right;
+}
+
+#projects td, #projects th, #projects tr {
+  border: 1px solid black;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.statuses {
+  width: 200px;
 }

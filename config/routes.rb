@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy'
   resources :users, except: [:destroy] do
-    resources :projects, shallow: true do
+    resources :projects, only: [:create, :show, :destroy], shallow: true do
       resources :tasks, only: [:create]
     end
   end

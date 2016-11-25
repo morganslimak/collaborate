@@ -1,11 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :is_project_member?, only: [:show]
 
-  def new
-    @user = User.find(params[:user_id])
-    @project = @user.projects.new
-  end
-
   def create
     @user = User.find(params[:user_id])
     @project = @user.projects.new(project_params)
