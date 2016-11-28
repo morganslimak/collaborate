@@ -1,12 +1,6 @@
-<div class="container-fluid background">
-  <div class="well well-lg">
-    <%= button_to "Log Out", login_path, method: :delete, id: "logout-btn", class: "btn-square btn btn-default" %>
-    <h1 id="nav-header">Collaborate</h1>
-    <ul class="nav nav-tabs">
-      <li role="presentation"><%= link_to "My Projects", user_path(@user) %></li>
-      <li role="presentation" class="active"><%= link_to "Edit Profile", edit_user_path(@user) %></li>
-    </ul>
-    <br>
-    <%= render partial: "form" %>
-  </div>
-</div>
+<ul class="nav nav-tabs">
+  <li role="presentation"><%= link_to "My Projects", user_path(@user) %></li>
+  <li role="presentation" class="active"><%= link_to "Edit Profile", edit_user_path(@user) %></li>
+</ul>
+<br>
+<%= render partial: "form" %>

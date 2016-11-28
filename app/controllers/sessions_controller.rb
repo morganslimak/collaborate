@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+  before_action :already_logged_in?, only: [:new, :create]
 
   def new
-
+    @user = current_user
   end
 
   def create

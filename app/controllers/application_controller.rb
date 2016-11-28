@@ -10,9 +10,12 @@ class ApplicationController < ActionController::Base
   private
 
   def require_login
-    unless current_user != nil
+    if current_user == nil
       redirect_to root_path
     end
   end
 
+  def already_logged_in?
+    redirect_to current_user unless current_user == nil
+  end
 end

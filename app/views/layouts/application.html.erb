@@ -16,6 +16,10 @@
         <%= value %>
       </div>
     <% end %>
-    <%= yield %>
+    <% if current_user != nil%>
+      <%= render "layouts/main" %>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

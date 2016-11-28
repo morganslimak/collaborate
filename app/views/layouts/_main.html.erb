@@ -1,0 +1,9 @@
+<div class="container-fluid background">
+  <div class="well well-lg">
+    <%= button_to "Log Out", login_path, method: :delete, id: "logout-btn", class: "btn-square btn btn-default" %>
+    <h1 id="nav-header"><%= link_to "Collaborate", user_path, id: "nav-home" %></h1>
+
+    <%= yield %>
+
+  </div>
+</div>

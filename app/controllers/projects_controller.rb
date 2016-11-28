@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @task = Task.new
     @member = Member.new
-    @tasks = @project.tasks
+    @tasks = @project.tasks.order(:created_at)
     @members = @project.users
     @user = current_user
   end
