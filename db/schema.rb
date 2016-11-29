@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125194929) do
+ActiveRecord::Schema.define(version: 20161129201030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "histories", force: :cascade do |t|
+    t.string   "history"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "project_id"
+    t.index ["project_id"], name: "index_histories_on_project_id", using: :btree
+  end
 
   create_table "members", force: :cascade do |t|
     t.integer "user_id"
@@ -46,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161125194929) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "histories", "projects"
   add_foreign_key "members", "projects"
   add_foreign_key "members", "users"
   add_foreign_key "tasks", "projects"

@@ -58,3 +58,10 @@
   </div>
   <%= submit_tag "Add Member", class: "btn-square btn btn-default" %>
 <% end %>
+<br>
+<h4>Project History:</h4>
+<ul>
+  <% @histories.each do |history| %>
+    <li><%= history.created_at.to_formatted_s + " - " + history.history %></li>
+  <% end %>
+</ul>

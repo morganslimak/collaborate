@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
     @tasks = @project.tasks.order(:created_at)
     @members = @project.users
     @user = current_user
+    @histories = @project.histories.order(:created_at).reverse
   end
 
   private

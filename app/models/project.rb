@@ -3,4 +3,5 @@ class Project < ApplicationRecord
   has_many :members
   has_many :users, through: :members
   has_many :tasks
+  has_many :histories
 end
