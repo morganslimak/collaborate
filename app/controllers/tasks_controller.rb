@@ -6,7 +6,8 @@ class TasksController < ApplicationController
       @project.histories.create(history: current_user.username + " added the task '" + @task.description + "'")
       redirect_to :back
     else
-      #error
+      flash[:alert] = "Task description cannot be blank!"
+      redirect_to :back
     end
   end
 
