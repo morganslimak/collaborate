@@ -12,4 +12,24 @@ RSpec.describe Project, type: :model do
       expect(project).to be_invalid
     end
   end
+
+  context "relationships" do
+    it "has many users through members" do
+      project = Project.new(name: "Project1")
+
+      expect(project).to respond_to(:users)
+    end
+
+    it "has many tasks" do
+      project = Project.new(name: "Project1")
+
+      expect(project).to respond_to(:tasks)
+    end
+
+    it "has many histories" do
+      project = Project.new(name: "Project1")
+
+      expect(project).to respond_to(:histories)
+    end
+  end
 end

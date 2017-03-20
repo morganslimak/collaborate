@@ -40,4 +40,13 @@ RSpec.describe User, type: :model do
       expect(user).to be_invalid
     end
   end
+
+  context "relationships" do
+    it "has many projects through members" do
+      user = User.new(first_name: "morgan", last_name: "s",
+                      password: "password", password_confirmation: "password")
+
+      expect(user).to respond_to(:projects)
+    end
+  end
 end

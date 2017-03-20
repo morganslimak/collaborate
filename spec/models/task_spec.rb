@@ -17,4 +17,12 @@ RSpec.describe Task, type: :model do
       expect(task).to be_invalid
     end
   end
+
+  context "relationships" do
+    it "belongs to project" do
+      task = Task.new
+
+      expect(task).to respond_to(:project)
+    end
+  end
 end
