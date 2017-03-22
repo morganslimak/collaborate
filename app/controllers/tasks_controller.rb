@@ -4,10 +4,10 @@ class TasksController < ApplicationController
     @task = @project.tasks.new(task_params)
     if @task.save
       @project.histories.create(history: current_user.username + " added the task '" + @task.description + "'")
-      redirect_to :back
+      redirect_to @project
     else
       flash[:alert] = "Task description cannot be blank!"
-      redirect_to :back
+      redirect_to @project
     end
   end
 
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
       elsif !task_params[:status].nil? && task_params[:status].include?("Completed")
         @project.histories.create(history: current_user.username + " completed the task '" + @task.description + "'")
       end
-      redirect_to :back
+      redirect_to @project
     else
     end
   end
@@ -30,7 +30,7 @@ class TasksController < ApplicationController
     @project = @task.project
     if @task.destroy
       @project.histories.create(history: current_user.username + " deleted the task '" + @task.description + "'")
-      redirect_to :back
+      redirect_to @project
     else
     end
   end

@@ -5,9 +5,9 @@ describe "User logs in" do
     user = create(:user)
     visit '/'
     fill_in "username", with: user.username
-    fill_in "password", with: "password"
-    click_on "Log In"
+    fill_in "password", with: user.password
+    click_on "Login"
 
-    expect(page).to have_content "Welcome, Morgan"
+    expect(page).to have_content "Welcome back, Morgan!"
   end
 end
